@@ -54,7 +54,7 @@ constructor() {
                 <span className="puzzleText"> Original: { JSON.stringify(this.state.pets, null, 10) } </span>
                 <input className="inputLine" onChange={ (e) => this.handleChange(e.target.value) } ></input>
                 <button className="confirmationButton" onClick={ () => this.filterPets(this.state.userInput) }> Filter </button>
-                <span className="resultsBox filterObjectRB"> Filtered { JSON.stringify(this.state.filterPets, null, 10) }</span>
+                <span className="resultsBox filterObjectRB"> Filtered: { JSON.stringify(this.state.filterPets, null, 10) }</span>
                 
             </div>
         )
