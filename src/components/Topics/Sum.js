@@ -17,8 +17,8 @@ updateNumber1(val) {
 updateNumber2(val) {
     this.setState({ number2: parseInt(val, 10) });
 }
-add(num1, num2) {
-    this.setState({sum: num1 + num2});
+add(number1, number2) {
+    this.setState({sum: number1 + number2});
 }
     
 
@@ -27,8 +27,8 @@ add(num1, num2) {
             <div className="puzzleBox sumPB">
                 <h4> Sum </h4>
                 <input className="inputLine" onChange ={ (e) => this.updateNumber1(e.target.value) }></input>
-                <input className="resultsBox" onChange = { (e) => this.updateNumber2(e.target.value) }></input>
-                <button className="confirmationButton" onClick={ (e)=> this.add(this.state.number1, this.state.number2)}>Add</button>
+                <input className="inputLine" onChange = { (e) => this.updateNumber2(e.target.value) }></input>
+                <button className="confirmationButton" onClick={ (e)=> this.add(this.state.number1, this.state.number2)} > Add </button>
                 <span className="resultsBox"> Sum: {this.state.sum}</span>
             </div>
             
