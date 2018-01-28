@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 
-
-export default class EvenAndOdd extends Component {
+class EvenAndOdd extends Component {
 
   constructor() {
     super();
-
+  
     this.state = {
       evenArray: [],
       oddArray: [],
       userInput: ''
     }
   }
-
+  
   handleChange(val) {
     this.setState( { userInput: val } );
   }
@@ -29,27 +28,18 @@ export default class EvenAndOdd extends Component {
         odds.push( parseInt(arr[i], 10) );
       }
     }
-      
-    this.setState({ evenArray: evens, oddArray: odds });
+      this.setState({ evenArray: evens, oddArray: odds });
   }
-
-
-    render() {
-
+ render() {
       return (
       <div className="puzzleBox evenAndOddPB">
-        
         <h4>Evens and Odds</h4>
-        
         <input className="inputLine" onChange={ (e) => this.handleChange(e.target.value) }></input>
-        
-        <button className="confirmationButton" onClick={ ()=> { this.assignEvenAndOdds(this.state.userInput) }}> Split </button>
-        
-        <span className="resultsBox"> Evens: { JSON.stringify(this.state.evenArray) } </span>
-        
-        <span className="resultsBox"> Odds: { JSON.stringify(this.state.oddArray) } </span>
+        <button className="confirmationButton" onClick={ ()=> { this.assignEvenAndOdds(this.state.userInput) }}>Split</button>
+        <span className="resultsBox"> Evens:{ JSON.stringify(this.state.evenArray) }</span>
+        <span className="resultsBox">Odds: { JSON.stringify(this.state.oddArray) }</span>
       </div>
       )
   }
-
 }
+export default EvenAndOdd;

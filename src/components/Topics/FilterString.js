@@ -38,7 +38,6 @@ class FilterString extends Component {
         
     }
     
-
     render(){
         return(
             
@@ -49,7 +48,6 @@ class FilterString extends Component {
               <button className="confirmationButton" onClick={ () => this.filterFoods(this.state.userInput, 10) }>Filter</button>
               <span className="resultsBox filterStringRB">{ JSON.stringify(this.state.filteredFoods, 10) }</span>
               <span> { JSON.stringify() }</span>
-              
             </div>
         )
     }

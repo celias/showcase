@@ -1,6 +1,8 @@
+
 import React, { Component } from 'react';
 
-export default class FilterObject extends Component {
+
+class FilterObject extends Component {
 
 constructor() {
     super();
@@ -29,7 +31,6 @@ constructor() {
         }
     }
 
-
     handleChange(val) {
         this.setState( { userInput: val });
     }
@@ -55,8 +56,8 @@ constructor() {
                 <input className="inputLine" onChange={ (e) => this.handleChange(e.target.value) } ></input>
                 <button className="confirmationButton" onClick={ () => this.filterPets(this.state.userInput) }> Filter </button>
                 <span className="resultsBox filterObjectRB"> Filtered: { JSON.stringify(this.state.filterPets, null, 10) }</span>
-                
             </div>
         )
     }
 }
+export default FilterObject;
