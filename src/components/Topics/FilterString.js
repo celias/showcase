@@ -1,60 +1,57 @@
-//always at the top
 import React, { Component } from 'react';
-//exports your default class 'Filter String'
-export default class FilterString extends Component {
-  
-  constructor() {
-    super();
 
-    this.state = {
-      philosophers: [
-        "Sartre",
-        "Ponty",
-        "Nietzsche",
-        "Wittgenstein",
-        "Whitehead",
-        "Derrida",
-        "Hegel",
-        "Beauvoir",
-        "Nancy",
-        "Walter Benjamin",
-        "Sam",
-        "Dan",
-        "Maurice",
-        "Betsy",
-        "Henry"
-      ],
-      userInput: "",
-      filterPhilosophers: []
-    };
-  }
-  handleChange(val) {
-    this.setState({ userInput: val });
-  }
+class FilterString extends Component {
+    constructor(){
+        super();
 
-  filterPhilosophers(userInput) {
-    var philosophers = this.state.philosophers;
-    var filterPhilosophers = [];
-
-    for (var i = 0; i < philosophers.length; i++) {
-      if (philosophers[i].includes(userInput))
-        filterPhilosophers.push(philosophers[i]);
+        this.state = {
+            foods: ["sushi", "wasabi", "salmon", "nori", "pizza", "leftovers", "ham", "cheese", "spaghetti o's", "miso"],
+            userInput: '',
+            filteredFoods: [],
+            noFoodz: "Sorry Bryce, we're out of that food."
+        }
     }
 
-    //the return of filtering philosophers
-    this.setState({ filterPhilosophers: filterPhilosophers });
-  }
+    handleChange(val) {
+        this.setState({ userInput: val });
+    }
 
-  render() {
-    return (
-      <div className="puzzleBox filterStringPB">
-        <h4> Filter String </h4>
-        <span className="puzzleText"> Philosophers: {JSON.stringify(this.state.names, null, 10)}</span>
-        <input className="inputLine" onChange={e => this.handleChange(e.target.value)}></input>
-        <button className="confirmationButton" onClick={() => this.filterPhilosophers(this.state.userInput) }> Filter </button>
-        <span className="resultsBox filterStringRB"> Filtered Philosophers: {JSON.stringify(this.state.filterPhilosophers, null, 10)}
-        </span>
-      </div>
-    )
-  }
+    filterFoods(userInput) {
+        let foods = this.state.foods;
+        let filteredFoods = [];
+        let noFoodz = this.state.noFoodz;
+        // is going to return a new array populated with the strings that do contain a given singular "string".
+        // update the value of the filteredArray
+        
+        filteredFoods.map((curr, i, arr) => {this.state.foods});
+        // console.log(this.state.foods);
+        if(foods.includes(userInput) ) {
+            filteredFoods.push(foods);
+        } else {
+            if(foods.includes(userInput) !== this.state.foods) {
+            filteredFoods.push(noFoodz);
+        } 
+    }
+        
+        this.setState({ filteredFoods: filteredFoods })
+        
+        
+    }
+    
+
+    render(){
+        return(
+            
+            <div className="puzzleBox filterStringPB">
+              <h4>Filter String</h4>
+              <span className="puzzleText"> Foods: { JSON.stringify(this.state.foods) }</span>
+              <input className="inputLine" onChange={ (e) => this.handleChange(e.target.value) }></input>
+              <button className="confirmationButton" onClick={ () => this.filterFoods(this.state.userInput, 10) }>Filter</button>
+              <span className="resultsBox filterStringRB">{ JSON.stringify(this.state.filteredFoods, 10) }</span>
+              <span> { JSON.stringify() }</span>
+              
+            </div>
+        )
+    }
 }
+export default FilterString;
