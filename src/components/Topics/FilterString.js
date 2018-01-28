@@ -7,8 +7,8 @@ class FilterString extends Component {
         this.state = {
             foods: ["sushi", "wasabi", "salmon", "nori", "pizza", "leftovers", "ham", "cheese", "spaghetti o's", "miso"],
             userInput: '',
-            filteredFoods: [],
-            noFoodz: "Sorry Bryce, we're out of that food."
+            filteredFoods: []
+            
         }
     }
 
@@ -19,18 +19,14 @@ class FilterString extends Component {
     filterFoods(userInput) {
         let foods = this.state.foods;
         let filteredFoods = [];
-        let noFoodz = this.state.noFoodz;
         // is going to return a new array populated with the strings that do contain a given singular "string".
         // update the value of the filteredArray
         
-        filteredFoods.map((curr, i, arr) => {this.state.foods});
-        // console.log(this.state.foods);
-        if(foods.includes(userInput) ) {
-            filteredFoods.push(foods);
-        } else {
-            if(foods.includes(userInput) !== this.state.foods) {
-            filteredFoods.push(noFoodz);
-        } 
+        for ( var i = 0; i < foods.length; i++ ) {
+            if ( foods[i].includes(userInput) ) {
+              filteredFoods.push(foods[i]);
+            } 
+      
     }
         
         this.setState({ filteredFoods: filteredFoods })
@@ -38,7 +34,7 @@ class FilterString extends Component {
         
     }
     
-    render(){
+    render() {
         return(
             
             <div className="puzzleBox filterStringPB">
@@ -47,7 +43,7 @@ class FilterString extends Component {
               <input className="inputLine" onChange={ (e) => this.handleChange(e.target.value) }></input>
               <button className="confirmationButton" onClick={ () => this.filterFoods(this.state.userInput, 10) }>Filter</button>
               <span className="resultsBox filterStringRB">{ JSON.stringify(this.state.filteredFoods, 10) }</span>
-              <span> { JSON.stringify() }</span>
+             
             </div>
         )
     }
